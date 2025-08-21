@@ -1,0 +1,17 @@
+id = "comment-divider"
+name = "Comment Divider"
+version = "0.1.0"
+schema_version = 1
+authors = ["rathoddeepak537@gmail.com"]
+description = "Divide your code by sections with styled separators"
+repository = "https://github.com/rathoddeepak/comment-divider-zed"
+
+[commands]
+"comment-divider:make-main-header" = "Make Main Header"
+"comment-divider:make-subheader" = "Make Subheader"
+"comment-divider:insert-solid-line" = "Insert Solid Line"
+
+[keybindings]
+"shift-alt-x" = "comment-divider:make-main-header"
+"alt-x" = "comment-divider:make-subheader"
+"alt-y" = "comment-divider:insert-solid-line"

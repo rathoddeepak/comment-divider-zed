@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Comment Divider Settings",
+  "type": "object",
+  "properties": {
+    "comment_divider": {
+      "type": "object",
+      "properties": {
+        "length": {
+          "type": "integer",
+          "default": 80,
+          "minimum": 10,
+          "maximum": 200,
+          "description": "Set line length for all dividers"
+        },
+        "should_length_include_indent": {
+          "type": "boolean",
+          "default": false,
+          "description": "Set whether the divider will shrink considering indent size, or will always be fixed length"
+        },
+        "main_header_filler": {
+          "type": "string",
+          "default": "-",
+          "maxLength": 1,
+          "description": "Set symbol for main header line filling (only one character)"
+        },
+        "main_header_height": {
+          "type": "string",
+          "enum": ["block", "line"],
+          "default": "block",
+          "description": "Set main header vertical style"
+        },
+        "main_header_align": {
+          "type": "string",
+          "enum": ["left", "center", "right"],
+          "default": "center",
+          "description": "Set main header text alignment"
+        },
+        "main_header_transform": {
+          "type": "string",
+          "enum": ["none", "uppercase", "lowercase", "capitalize"],
+          "default": "none",
+          "description": "Set main header text transform style"
+        },
+        "subheader_filler": {
+          "type": "string",
+          "default": "-",
+          "maxLength": 1,
+          "description": "Set symbol for subheader line filling (only one character)"
+        },
+        "subheader_height": {
+          "type": "string",
+          "enum": ["line"],
+          "default": "line",
+          "description": "Set subheader vertical style"
+        },
+        "subheader_align": {
+          "type": "string",
+          "enum": ["left", "center", "right"],
+          "default": "center",
+          "description": "Set subheader text alignment"
+        },
+        "subheader_transform": {
+          "type": "string",
+          "enum": ["none", "uppercase", "lowercase", "capitalize"],
+          "default": "none",
+          "description": "Set subheader text transform style"
+        },
+        "line_filler": {
+          "type": "string",
+          "default": "-",
+          "maxLength": 1,
+          "description": "Set symbol for solid line filling"
+        },
+        "languages_map": {
+          "type": "object",
+          "patternProperties": {
+            "^[\\w\\-\\.]+$": {
+              "type": "array",
+              "description": "Name of the language mode",
+              "minItems": 1,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false,
+          "description": "Defines what characters will be used as comment line limiters for special languages. It also overrides the default preset.",
+          "default": {
+            "javascript": ["//"],
+            "typescript": ["//"],
+            "rust": ["//"],
+            "python": ["#"],
+            "html": ["<!--", "-->"],
+            "css": ["/*", "*/"],
+            "c": ["/*", "*/"],
+            "cpp": ["//"],
+            "java": ["//"],
+            "go": ["//"],
+            "php": ["//"],
+            "ruby": ["#"],
+            "shell": ["#"],
+            "bash": ["#"],
+            "yaml": ["#"],
+            "toml": ["#"],
+            "sql": ["--"],
+            "lua": ["--"],
+            "vim": ["\""]
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
